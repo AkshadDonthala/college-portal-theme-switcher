@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Portal Theme Switcher</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
+        }
+
+        /* Light Theme */
+        body.light {
+            background-color: #f2f2f2;
+            color: #000;
+        }
+
+        /* Dark Theme */
+        body.dark {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .portal-box {
+            margin: 30px auto;
+            padding: 25px;
+            width: 60%;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        /* Light Portal Box */
+        body.light .portal-box {
+            background: #fff;
+            color: #000;
+            border: 1px solid #ccc;
+        }
+
+        /* Dark Portal Box */
+        body.dark .portal-box {
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+        }
+    </style>
+</head>
+<body class="light">
+
+    <div class="container">
+        <h1>College Student Portal</h1>
+
+        <button id="themeBtn">Switch to Dark Mode</button>
+
+        <div class="portal-box">
+            <h2>Welcome Student</h2>
+            <p id="themeText">Your current theme is: LIGHT</p>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('themeBtn');
+        const text = document.getElementById('themeText');
+        const body = document.body;
+
+        btn.addEventListener('click', () => {
+            if (body.classList.contains('light')) {
+                body.classList.replace('light', 'dark');
+                btn.textContent = "Switch to Light Mode";
+                text.textContent = "Your current theme is: DARK";
+            } else {
+                body.classList.replace('dark', 'light');
+                btn.textContent = "Switch to Dark Mode";
+                text.textContent = "Your current theme is: LIGHT";
+            }
+        });
+    </script>
+
+</body>
+</html>
